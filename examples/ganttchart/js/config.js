@@ -20,6 +20,10 @@ jQuery.noConflict();
                     ganttchartDescLabel: '(B).Field of subtitle',
                     ganttchartDescDescription: 'Please specify the fields to be displayed' +
                         ' in the second classification of the vertical axis of the Gantt chart.',
+                    ganttchartAssign: 'Assign',
+                    ganttchartAssignLabel: '(B).Field of Assign',
+                    ganttchartAssignDescription: 'Please specify the fields to be displayed' +
+                        ' in the second classification of the vertical axis of the Gantt chart.',
                     ganttchartFrom: 'Start date',
                     ganttchartFromLabel: '(C).Field of start date (or date and time)',
                     ganttchartFromDescription: '',
@@ -56,6 +60,9 @@ jQuery.noConflict();
                     ganttchartDesc: 'サブタイトル',
                     ganttchartDescLabel: '(B).サブタイトルにするフィールド',
                     ganttchartDescDescription: 'ガントチャートの縦軸の第二分類に表示するフィールドを指定してください。',
+                    ganttchartAssign: 'サブタイトル',
+                    ganttchartAssignLabel: '(B2).担当にするフィールド',
+                    ganttchartAssignDescription: 'ガントチャートの縦軸の担当者に表示するフィールドを指定してください。',
                     ganttchartFrom: '開始日',
                     ganttchartFromLabel: '(C).開始日(開始日時)のフィールド',
                     ganttchartFromDescription: '',
@@ -90,6 +97,10 @@ jQuery.noConflict();
                     ganttchartDesc: '副标题',
                     ganttchartDescLabel: '(B).要作为副标题的字段',
                     ganttchartDescDescription: '选择甘特图纵轴第二分类要显示的字段',
+                    ganttchartAssign: 'Assign',
+                    ganttchartAssignLabel: '(B2).Field of Assign',
+                    ganttchartAssignDescription: 'Please specify the fields to be displayed' +
+                        ' in the second classification of the vertical axis of the Gantt chart.',
                     ganttchartFrom: '开始日',
                     ganttchartFromLabel: '(C).作为开始日(开始日期与时间)的字段',
                     ganttchartFromDescription: '',
@@ -129,6 +140,7 @@ jQuery.noConflict();
                     ganttForm: '.ganttchart-plugin-form',
                     ganttchartTitle: '#ganttchart-plugin-title',
                     ganttchartDesc: '#ganttchart-plugin-desc',
+                    ganttchartAssign: '#ganttchart-plugin-assign',
                     ganttchartFrom: '#ganttchart-plugin-from',
                     ganttchartTo: '#ganttchart-plugin-to',
                     ganttchartColor: '#ganttchart-plugin-color',
@@ -204,6 +216,13 @@ jQuery.noConflict();
                                     .text(prop['label'])
                                     .val(this.escapeHtml(prop['code'])));
                             break;
+
+                        case 'USER_SELECT':
+                            $('#ganttchart-plugin-assign')
+                                .append($('<option>').text(prop['label'])
+                                    .val(this.escapeHtml(prop['code'])));
+                            break;
+
                         case 'SUBTABLE':
                             if (key !== 'Table') {
                                 continue;
@@ -256,6 +275,7 @@ jQuery.noConflict();
                 // Get the plug-in information to set the definition data
                 $('#ganttchart-plugin-title').val(this.escapeHtml(this.settings.config['ganttchartTitle']));
                 $('#ganttchart-plugin-desc').val(this.escapeHtml(this.settings.config['ganttchartDesc']));
+                $('#ganttchart-plugin-assign').val(this.escapeHtml(this.settings.config['ganttchartAssign']));
                 $('#ganttchart-plugin-from').val(this.escapeHtml(this.settings.config['ganttchartFrom']));
                 $('#ganttchart-plugin-to').val(this.escapeHtml(this.settings.config['ganttchartTo']));
                 $('#ganttchart-plugin-color').val(this.escapeHtml(this.settings.config['ganttchartColor']));
@@ -316,6 +336,7 @@ jQuery.noConflict();
                 // Save the value
                 var ganttchartTitle = $(this.settings.element.ganttchartTitle).val();
                 var ganttchartDesc = $(this.settings.element.ganttchartDesc).val();
+                var ganttchartAssign = $(this.settings.element.ganttchartAssign).val();
                 var ganttchartFrom = $(this.settings.element.ganttchartFrom).val();
                 var ganttchartTo = $(this.settings.element.ganttchartTo).val();
                 var ganttchartColor = $(this.settings.element.ganttchartColor).val();
@@ -325,6 +346,7 @@ jQuery.noConflict();
                 var ganntTableCheckTmp = {
                     title: $(this.settings.element.ganttchartTitle + ' option:selected').text(),
                     desc: $(this.settings.element.ganttchartDesc + ' option:selected').text(),
+                    assign: $(this.settings.element.ganttchartAssign + ' option:selected').text(),
                     from: $(this.settings.element.ganttchartFrom + ' option:selected').text(),
                     to: $(this.settings.element.ganttchartTo + ' option:selected').text(),
                     color: $(this.settings.element.ganttchartColor + ' option:selected').text()
@@ -379,6 +401,7 @@ jQuery.noConflict();
                 // Set the definition data
                 this.settings.config['ganttchartTitle'] = ganttchartTitle;
                 this.settings.config['ganttchartDesc'] = ganttchartDesc;
+                this.settings.config['ganttchartAssign'] = ganttchartAssign;
                 this.settings.config['ganttchartFrom'] = ganttchartFrom;
                 this.settings.config['ganttchartTo'] = ganttchartTo;
                 this.settings.config['ganttchartColor'] = ganttchartColor;
@@ -386,6 +409,7 @@ jQuery.noConflict();
                 this.settings.config['settingColors'] = JSON.stringify(this.settingColorsGet());
                 this.settings.config['fieldNameTitle'] = ganntTableCheckTmp.title;
                 this.settings.config['fieldNameDesc'] = ganntTableCheckTmp.desc;
+                this.settings.config['fieldNameAssign'] = ganntTableCheckTmp.assign;
                 this.settings.config['fieldNameFrom'] = ganntTableCheckTmp.from;
                 this.settings.config['fieldNameTo'] = ganntTableCheckTmp.to;
                 this.settings.config['fieldNameColor'] = ganntTableCheckTmp.color;

@@ -1,0 +1,5 @@
+# gantt project for kintone
+
+## App packaging
+*.ppk
+*.zip
