@@ -3,16 +3,16 @@
    "version":2,
    "type":"APP",
    "name":{
-      "ja":"ガントチャートプラグイン",
-      "en":"GanttChart plugin",
-      "zh":"甘特图插件"
+      "ja":"ガントチャートプラグインver2",
+      "en":"GanttChart plugin ver2",
+      "zh":"甘特图插件2cd .."
    },
    "description":{
       "ja":"これはガントチャートを表示するサンプルのプラグインです。",
       "en":"This is sample Gantt chart plugin.",
       "zh":"此插件是以甘特图为例示范插件的开发方法"
    },
-   "icon":"img/icon.png",
+   "icon":"img/logo-transparent.png",
    "homepage_url":{
       "ja":"https://developer.cybozu.io/hc/ja/articles/203716110",
       "en":"https://developer.cybozu.io/hc/ja/articles/203716110",
