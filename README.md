@@ -1,7 +1,7 @@
-kintone Plug-in Examples
+kintone Plug-in Gantt
 ==========================
 
-This is a repository for kintone plugin-in examples.
+This is a repository for gantt chart from "kintone plugin-in examples".
 
 ## package.sh is now deprecated!
 
