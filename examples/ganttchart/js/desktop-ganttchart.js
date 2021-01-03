@@ -349,6 +349,7 @@ function closeButton() {
             var GANTT_COLOR = self.settings.config['ganttchartColor'] || '',
                 GANTT_NAME = self.settings.config['ganttchartTitle'] || '',
                 GANTT_DESC = self.settings.config['ganttchartDesc'] || '',
+                GANTT_ASSIGN = self.settings.config['ganttchartAssign'] || '',
                 GANTT_FROM = self.settings.config['ganttchartFrom'] || '',
                 GANTT_TO = self.settings.config['ganttchartTo'] || '';
 
@@ -445,6 +446,7 @@ function closeButton() {
                         ganttStylesRecord[styleRecordClass2] = self.settings.config.settingColors[colorValue2];
                     }
 
+                    // desc
                     var descGantt2 = '<b>' + self.escapeHtml(records[i3][GANTT_NAME].value) + '</b>';
                     if (records[i3][GANTT_DESC]) {
                         descGantt2 += '<div>' +
@@ -452,6 +454,20 @@ function closeButton() {
                             '</div>';
                     }
 
+                    // Assign
+                    var ia = 0;
+                    var assignGantt2 = "";
+                    if(records[i3][GANTT_ASSIGN]){
+                        for(ia = 0; ia < records[i3][GANTT_ASSIGN].value.length; ia++){
+                            if(ia > 0){
+                                assignGantt2 += assignGantt2 + ","
+                            }
+                            assignGantt2 += self.escapeHtml(records[i3][GANTT_ASSIGN].value[ia].name)
+                        }
+                        descGantt2 += '<div>' + conf.fieldNameAssign + ': ' + assignGantt2 + '</div>';
+                    }
+
+                    // from
                     var fromValue2 = records[i3][GANTT_FROM]['value'];
                     if (fromValue2) {
                         descGantt2 += '<div>' + conf.fieldNameFrom + ': ' +
@@ -459,6 +475,7 @@ function closeButton() {
                             '</div>';
                     }
 
+                    // to
                     var toValue2 = records[i3][GANTT_TO]['value'];
                     if (toValue2) {
                         descGantt2 += '<div>' + conf.fieldNameTo + ': ' +
