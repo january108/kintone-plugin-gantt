@@ -83,6 +83,11 @@ ja
 
 https://help.cybozu.com/ja/k/admin/plugin.html
 
+## Using
+
+* [PleaseJS](https://github.com/Fooidge/PleaseJS)
+ ランダムな色を生成
+
 ## Licence
 
 Copyright(c) 2021 january108  
