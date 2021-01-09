@@ -453,7 +453,7 @@ function closeButton() {
                     var ia = 0;
                     var mainAssign = "";
                     var assignGantt2 = "";
-                    if(records[i3][GANTT_ASSIGN]){
+                    if(records[i3][GANTT_ASSIGN] && records[i3][GANTT_ASSIGN].value[ia]){
 
                         mainAssign = records[i3][GANTT_ASSIGN].value[ia].name;
                         for(ia = 0; ia < records[i3][GANTT_ASSIGN].value.length; ia++){
