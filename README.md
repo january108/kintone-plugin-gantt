@@ -26,12 +26,14 @@ For more information, please check the following pages.
 ## Output Files
 
 ### Plug-in Package
+パッケージングされたプラグイン。
 
 ```bash
 plugin.zip
 ```
 
 ### Private Key
+kintoneでプラグインを一意に識別するためのキー。
 
 ```bash
 <plug-in id>.ppk
@@ -51,14 +53,14 @@ $ ls examples/*.ppk
 examples/dhcpcmonencgafiddfaofdfednmjnbem.ppk
 ```
 
-## 1回め
+## 1回め（例）
 ```bash
 kintone-plugin-packer ganttchart/
 ```
 
 
-## 2回め
-キーを指定すると、kintoneへのインストール時に、同じプラグインと認識されます。キーを指定しない場合は、新しいプラグインと認識されます。  ppkも使っちゃってください。
+## 2回め（例）
+プラグインのIDキーを指定する。
 ```bash
 $ kintone-plugin-packer --ppk pluginid.ppk ganttchart/
 ```
