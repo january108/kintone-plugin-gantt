@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/*
+ * Copyright (c) 2021 kiitoslink
+ *
+ * Licensed under the MIT License
+*/
+/*
+.fn-gantt .leftPanel {
+    float: left;
+    width: 330px;
+    overflow: hidden;
+    border-right: 1px solid #DDD;
+    position: relative;
+    z-index: 20;
+}
+*/
+
+.fn-gantt .leftPanel .assign {
+    width: 100px;
+}
+
+.fn-gantt .leftPanel .assign {
+    float: left;
+    height: 23px;
+    margin: 0;
+    border-bottom: 1px solid #DDD;
+    background-color: #f6f6f6;
+}
