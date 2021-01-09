@@ -438,12 +438,13 @@ function closeButton() {
             function createRecords2() {
                 for (var i3 = 0; i3 < records.length; i3++) {
                     var colorGantt2 = self.settings.element.classColorGanttDefault;
-
-                    var colorValue2 = records[i3][GANTT_COLOR]['value'] || '';
-                    if (colorValue2 && self.settings.config.settingColors[colorValue2]) {
-                        var styleRecordClass2 = self.settings.element.prefixColorGantt + 'class-' + i3;
-                        colorGantt2 = styleRecordClass2;
-                        ganttStylesRecord[styleRecordClass2] = self.settings.config.settingColors[colorValue2];
+                    if(records[i3][GANTT_COLOR]){
+                        var colorValue2 = records[i3][GANTT_COLOR]['value'] || '';
+                        if (colorValue2 && self.settings.config.settingColors[colorValue2]) {
+                            var styleRecordClass2 = self.settings.element.prefixColorGantt + 'class-' + i3;
+                            colorGantt2 = styleRecordClass2;
+                            ganttStylesRecord[styleRecordClass2] = self.settings.config.settingColors[colorValue2];
+                        }
                     }
 
                     // desc

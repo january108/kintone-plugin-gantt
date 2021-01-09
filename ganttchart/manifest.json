@@ -4,12 +4,12 @@
    "type":"APP",
    "name":{
       "ja":"ガントチャートプラグインver2.1",
-      "en":"GanttChart plugin ver2",
-      "zh":"甘特图插件2cd .."
+      "en":"GanttChart plugin ver2.1",
+      "zh":"甘特图插件2.1cd .."
    },
    "description":{
       "ja":"これはガントチャートを表示するプラグインです。",
-      "en":"This is sample Gantt chart plugin.",
+      "en":"This is Gantt chart plugin.",
       "zh":"此插件是以甘特图为例示范插件的开发方法"
    },
    "icon":"img/logo-transparent.png",
@@ -55,7 +55,6 @@
          "ganttchartTitle",
          "ganttchartFrom",
          "ganttchartTo",
-         "ganttchartColor",
          "ganttchartScall"
       ]
    }

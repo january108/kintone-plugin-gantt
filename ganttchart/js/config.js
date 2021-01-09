@@ -369,6 +369,7 @@ jQuery.noConflict();
                     this.alert(this.settings.element.ganttchartTo, this.settings.i18n.requiredField);
                     formValid = false;
                 }
+                /*
                 if (ganttchartColor === '') {
                     this.alert(this.settings.element.ganttchartColor, this.settings.i18n.requiredField);
                     formValid = false;
@@ -377,19 +378,24 @@ jQuery.noConflict();
                     this.alert(this.settings.element.ganttchartScall, this.settings.i18n.requiredField);
                     formValid = false;
                 }
+                */
                 if (!formValid) {
                     return;
                 }
+
                 // テーブルと非テーブルフィールドの混在チェック
                 if (!(((ganntTableCheckTmp.desc.indexOf('[Table]') === 0 || ganntTableCheckTmp.desc === '--') &&
+                ganntTableCheckTmp.assign.indexOf('[Table]') === 0 &&
                 ganntTableCheckTmp.from.indexOf('[Table]') === 0 &&
                 ganntTableCheckTmp.to.indexOf('[Table]') === 0 &&
                 ganntTableCheckTmp.color.indexOf('[Table]') === 0) ||
                 (ganntTableCheckTmp.desc.indexOf('[Table]') === -1 &&
+                ganntTableCheckTmp.assign.indexOf('[Table]') === -1 &&
                 ganntTableCheckTmp.from.indexOf('[Table]') === -1 &&
                 ganntTableCheckTmp.to.indexOf('[Table]') === -1 &&
                 ganntTableCheckTmp.color.indexOf('[Table]') === -1))) {
                     this.alert(this.settings.element.ganttchartDesc, this.settings.i18n.mixedField);
+                    this.alert(this.settings.element.ganttchartAssign, this.settings.i18n.mixedField);
                     this.alert(this.settings.element.ganttchartFrom, this.settings.i18n.mixedField);
                     this.alert(this.settings.element.ganttchartTo, this.settings.i18n.mixedField);
                     this.alert(this.settings.element.ganttchartColor, this.settings.i18n.mixedField);
@@ -398,6 +404,7 @@ jQuery.noConflict();
                 if (!formValid) {
                     return;
                 }
+
                 // Set the definition data
                 this.settings.config['ganttchartTitle'] = ganttchartTitle;
                 this.settings.config['ganttchartDesc'] = ganttchartDesc;

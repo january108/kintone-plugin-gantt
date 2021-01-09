@@ -1,6 +1,10 @@
 kintone Plug-in Gantt
 ==========================
 
+kintone でガントチャートを表示するプラグインです。
+
+kintoneのプラグインサンプルを元にしています。
+
 This is a repository for gantt chart from "kintone plugin-in examples".
 
 ## package.sh is now deprecated!
