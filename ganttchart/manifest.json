@@ -26,6 +26,7 @@
          "https://momentjs.com/downloads/moment-timezone-with-data.min.js",
          "https://js.cybozu.com/jqueryui/1.12.1/jquery-ui.min.js",
          "js/jquery.ui.datepicker-ja.min.js",
+         "js/Please.js",
          "js/desktop-ganttchart.js"
       ],
       "css":[

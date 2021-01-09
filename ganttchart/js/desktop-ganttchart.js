@@ -245,6 +245,8 @@ function closeButton() {
         });
     }
 
+    var colors = Please.make_color({colors_returned: 16, full_random: false});
+    var colorDic = {};
     var kintonePluginGranttChart = {
         lang: {
             ja: {
@@ -437,15 +439,7 @@ function closeButton() {
             }
             function createRecords2() {
                 for (var i3 = 0; i3 < records.length; i3++) {
-                    var colorGantt2 = self.settings.element.classColorGanttDefault;
-                    if(records[i3][GANTT_COLOR]){
-                        var colorValue2 = records[i3][GANTT_COLOR]['value'] || '';
-                        if (colorValue2 && self.settings.config.settingColors[colorValue2]) {
-                            var styleRecordClass2 = self.settings.element.prefixColorGantt + 'class-' + i3;
-                            colorGantt2 = styleRecordClass2;
-                            ganttStylesRecord[styleRecordClass2] = self.settings.config.settingColors[colorValue2];
-                        }
-                    }
+
 
                     // desc
                     var descGantt2 = '<b>' + self.escapeHtml(records[i3][GANTT_NAME].value) + '</b>';
@@ -457,8 +451,11 @@ function closeButton() {
 
                     // Assign
                     var ia = 0;
+                    var mainAssign = "";
                     var assignGantt2 = "";
                     if(records[i3][GANTT_ASSIGN]){
+
+                        mainAssign = records[i3][GANTT_ASSIGN].value[ia].name;
                         for(ia = 0; ia < records[i3][GANTT_ASSIGN].value.length; ia++){
                             if(ia > 0){
                                 assignGantt2 += assignGantt2 + ","
@@ -482,6 +479,21 @@ function closeButton() {
                         descGantt2 += '<div>' + conf.fieldNameTo + ': ' +
                             self.escapeHtml(self.convertDateTimeWithTimezone(toValue2)) +
                             '</div>';
+                    }
+
+                    // color
+                    var colorGantt2 = self.settings.element.classColorGanttDefault;
+                    if(records[i3][GANTT_COLOR]){
+                        var colorValue2 = records[i3][GANTT_COLOR]['value'] || '';
+                        if (colorValue2 && self.settings.config.settingColors[colorValue2]) {
+                            var styleRecordClass2 = self.settings.element.prefixColorGantt + 'class-' + i3;
+                            colorGantt2 = styleRecordClass2;
+                            ganttStylesRecord[styleRecordClass2] = self.settings.config.settingColors[colorValue2];
+                        }
+                    }else{
+                            var styleRecordClass2 = self.settings.element.prefixColorGantt + 'class-' + i3;
+                            colorGantt2 = styleRecordClass2;
+                            ganttStylesRecord[styleRecordClass2] = decideColor(mainAssign);
                     }
                     if (colorValue2) {
                         descGantt2 += conf.fieldNameColor + ': ' + self.escapeHtml(colorValue2);
@@ -515,6 +527,16 @@ function closeButton() {
                     };
                     self.data.push(ganttRecordData2);
                 }
+            }
+            function decideColor(assign){
+                if(!assign){
+                    return 'ganttGray';
+                }
+
+                if(!colorDic[assign]){
+                    colorDic[assign] = colors[Object.keys(colorDic).length];
+                }
+                return colorDic[assign];
             }
             if (tableFlg) {
                 createRecords1();

@@ -88,6 +88,6 @@ Copyright(c) 2021 january108
 Release under MIT License  
 https://opensource.org/licenses/mit-license.php
 
-Copyright(c) Cybozu, Inc.
+Copyright(c) Cybozu, Inc.  
 Release under MIT License
 
