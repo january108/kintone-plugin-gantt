@@ -1,18 +1,11 @@
 kintone Plug-in Gantt
 ==========================
 
-kintone でガントチャートを表示するプラグインです。
+kintone でガントチャートを表示するプラグインです。  
+[cybozu社が作成したプラグインサンプル](https://developer.cybozu.io/hc/ja/articles/203716110-%E3%82%AC%E3%83%B3%E3%83%88%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3#step5)をカスタマイズしたものです。
+* 着色設定を任意に（全てデフォルト色）
+* 担当者蘭を追加（とりあえずツールチップに表示）
 
-kintoneのプラグインサンプルを元にしています。
-
-This is a repository for gantt chart from "kintone plugin-in examples".
-
-## package.sh is now deprecated!
-
-`package.sh` has been deprecated.
-
-Please use [@kintone/plugin-packer](https://www.npmjs.com/package/@kintone/plugin-packer) instead.
-It requires [Node.js](https://nodejs.org/).
 
 ## Requirement
 
@@ -58,8 +51,25 @@ $ ls examples/*.ppk
 examples/dhcpcmonencgafiddfaofdfednmjnbem.ppk
 ```
 
+## 1回め
+```bash
+kintone-plugin-packer ganttchart/
+```
+
+
+## 2回め
+キーを指定すると、kintoneへのインストール時に、同じプラグインと認識されます。キーを指定しない場合は、新しいプラグインと認識されます。  ppkも使っちゃってください。
+```bash
+$ kintone-plugin-packer --ppk kllnpkdeglggnpllmkmhhpjghnlmhjhg.ppk ganttchart/
+```
+
+
 ## Install Plug-in
 
+パッケージングしたZipファイルは[こちら](https://github.com/january108/kintone-plugin-gantt/blob/master/plugin.zip)をどうぞ。  
+ただし、不具合がある場合はご容赦ください。また、問い合わせはご容赦ください。  
+
+インストール方法は、以下のリンクを参照してください。
 See the following document.
 
 en
