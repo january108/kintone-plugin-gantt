@@ -60,7 +60,7 @@ kintone-plugin-packer ganttchart/
 ## 2回め
 キーを指定すると、kintoneへのインストール時に、同じプラグインと認識されます。キーを指定しない場合は、新しいプラグインと認識されます。  ppkも使っちゃってください。
 ```bash
-$ kintone-plugin-packer --ppk kllnpkdeglggnpllmkmhhpjghnlmhjhg.ppk ganttchart/
+$ kintone-plugin-packer --ppk pluginid.ppk ganttchart/
 ```
 
 
